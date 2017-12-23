@@ -1,0 +1,27 @@
+<h1 > log </h1>
+
+<div class="row show-hide-message">
+    <div [ngClass]="messageClass">
+        {{ message }}
+    </div>
+</div>
+
+<form [formGroup]="form" (submit)="onLog()">
+<div class="formGrpoup">
+<label >username</label>
+<div [ngClass]="{'has-error': (form.controls.username.errors && form.controls.username.dirty) || (!usernameValid && form.controls.username.dirty) , 'has-success':!form.controls.username.errors && usernameValid}" >
+    <input type="text" name="username" formControlName = "username" placeholder="username" class="form-control">
+    <ul class="help-block">
+        <li *ngIf= "form.controls.username.errors?.required && form.controls.username.dirty" > this field is required </li>
+    </ul>
+</div>  
+<label >password</label>
+<div [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty) , 'has-success':!form.controls.password.errors}" >
+<input type="password" name="password" formControlName = "password" placeholder="password" class="form-control">
+<ul class="help-block">
+    <li *ngIf= "form.controls.password.errors?.required && form.controls.password.dirty" > this field is required </li>
+</ul>
+</div>
+</div>
+<input type="submit" [disabled]="!form.valid || processing " class="btn btn-primary" value="Login">
+</form>

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+  <a class="navbar-brand" routerLink="/">HOME</a>
+  <ul class="nav nav-pills">
+      <li *ngIf = "!auth.loggedIn()" class="nav-item">
+        <a class="nav-link" routerLink="/register" >Register</a>
+      </li>
+      <li *ngIf = "auth.loggedIn()" [routerLinkActive] = "['active']" [routerLinkActiveOptions] = "{exact:true}" class="nav-item">
+        <a class="nav-link" routerLink="/dashboard" >Dashboard</a>
+      </li>
+      <li *ngIf = "!auth.loggedIn()" [routerLinkActive] = "['active']" [routerLinkActiveOptions] = "{exact:true}" class="nav-item">
+        <a class="nav-link" routerLink="/login" >Log in</a>
+      </li>
+      <li *ngIf = "auth.loggedIn()" [routerLinkActive] = "['active']" [routerLinkActiveOptions] = "{exact:true}" class="nav-item">
+        <a class="nav-link" routerLink="/profile">Profile</a>
+      </li>
+      <li *ngIf = "auth.loggedIn()" [routerLinkActive] = "['active']" [routerLinkActiveOptions] = "{exact:true}" class="nav-item">
+        <a class="nav-link" routerLink="/blog">Blog</a>
+      </li>
+      <li *ngIf = "auth.loggedIn()" [routerLinkActive] = "['active']" [routerLinkActiveOptions] = "{exact:true}" class="nav-item">
+        <a class="nav-link" (click)="onLogOut()" >LogOut</a>
+      </li>
+    </ul>
+  </div>
+</nav>

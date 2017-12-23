@@ -1,0 +1,4 @@
+<h1 class="page-header">home routes</h1>
+<button *ngIf="!auth.loggedIn()" routerLink="/register" class="btn btn-lr btn-info">Register</button>
+<button *ngIf="!auth.loggedIn()" routerLink="/login" class="btn btn-lr btn-info">Log in</button>
+<button *ngIf="auth.loggedIn()" routerLink="/blog" class="btn btn-lr btn-info">View Blogs</button>
